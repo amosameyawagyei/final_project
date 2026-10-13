@@ -1,0 +1,13 @@
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+  <% @food_scans.each do |scan| %>
+    <div class="col">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <p class="card-text"><%= scan.title %></p>
+          <%= link_to "View", scan, class: "btn btn-sm btn-outline-secondary" %>
+          <%= link_to "Edit", edit_food_scan_path(scan), class: "btn btn-sm btn-outline-secondary" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

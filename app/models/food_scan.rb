@@ -1,0 +1,2 @@
+class FoodScan < ApplicationRecord
+end

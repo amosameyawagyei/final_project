@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= content_for(:title) || "Final Project" %></title>
+    <title><%= content_for(:title)+" | " unless content_for(:title).blank? %>Final Project</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="application-name" content="Final Project">
@@ -24,6 +24,42 @@
   </head>
 
   <body>
-    <%= yield %>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+  <div class="container-fluid">
+    <%= link_to "Final Project", root_path, class: "navbar-brand" %>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav me-auto mb-2 mb-md-0">
+        <%= nav_link "Home", root_path %>
+        <%= nav_link "About", about_path %>
+      
+      </ul>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+   <div class="container mt-4">
+    <!-- Begin Flash Messages Code -->
+<div id="flash-messages" class="w-75">
+  <% flash.each do |name, msg| %>
+    <div class="alert alert-<%= name == 'notice' ? 'primary' : 'danger' %> alert-dismissible fade show d-flex justify-content-between" role="alert">
+      <p><strong><%= msg %></strong></p>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  <% end %>
+</div>
+<!-- End Flash Messages Code -->
+  <% if @show_title %>
+    <div class="row">
+      <h1><%= content_for(:title) %></h1>
+    </div>
+  <% end %>
+  <%= yield %>
+</div>
   </body>
 </html>
