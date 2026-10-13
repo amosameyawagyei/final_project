@@ -1,0 +1,32 @@
+<%= form_with(model: food_scan) do |form| %>
+  <% if food_scan.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(food_scan.errors.count, "error") %> prohibited this food_scan from being saved:</h2>
+
+      <ul>
+        <% food_scan.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :title, style: "display: block" %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div>
+    <%= form.label :notes, style: "display: block" %>
+    <%= form.textarea :notes %>
+  </div>
+
+  <div>
+    <%= form.label :food_item_id, style: "display: block" %>
+    <%= form.text_field :food_item_id %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,12 @@
+<% content_for :title, "Editing food scan" %>
+
+<h1>Editing food scan</h1>
+
+<%= render "form", food_scan: @food_scan %>
+
+<br>
+
+<div>
+  <%= link_to "Show this food scan", @food_scan %> |
+  <%= link_to "Back to food scans", food_scans_path %>
+</div>

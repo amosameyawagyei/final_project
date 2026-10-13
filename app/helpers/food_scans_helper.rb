@@ -1,0 +1,2 @@
+module FoodScansHelper
+end
