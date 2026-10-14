@@ -25,79 +25,58 @@
 
   <body>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-  <div class="container-fluid">
-    <%= link_to "Final Project", root_path, class: "navbar-brand" %>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarCollapse">
-      <ul class="navbar-nav me-auto mb-2 mb-md-0">
-        <%= nav_link "Home", root_path %>
-        <%= nav_link "About", about_path %>
-      
-      </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
-    </div>
-  </div>
-</nav>
-   <div class="container mt-4">
-    <!-- Begin Flash Messages Code -->
-<div id="flash-messages" class="w-75">
-  <% flash.each do |name, msg| %>
-    <div class="alert alert-<%= name == 'notice' ? 'primary' : 'danger' %> alert-dismissible fade show d-flex justify-content-between" role="alert">
-      <p><strong><%= msg %></strong></p>
-      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
-  <% end %>
-</div>
-<!-- End Flash Messages Code -->
-  <% if @show_title %>
-    <div class="row">
-      <h1><%= content_for(:title) %></h1>
-    </div>
-  <% end %>
-  <%= yield %>
-</div>
-<div class="container">
-  <footer class="py-5">
-    <div class="row">
-      <div class="col-6 col-md-2 mb-3">
-        <h5>Section</h5>
-        <ul class="nav flex-column">
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li>
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li>
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li>
-        </ul>
+      <div class="container-fluid">
+        <%= link_to "Final Project", root_path, class: "navbar-brand" %>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav me-auto mb-2 mb-md-0">
+            <%= nav_link "Home", root_path %>
+            <%= nav_link "About", about_path %>
+          </ul>
+          <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+        </div>
       </div>
-
-      <div class="col-6 col-md-2 mb-3">
-        <h5>Section</h5>
-        <ul class="nav flex-column">
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li>
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li>
-        </ul>
+    </nav>
+    <main class="container py-5">
+      <!-- Begin Flash Messages Code -->
+      <div id="flash-messages" class="w-75">
+        <% flash.each do |name, msg| %>
+          <div class="alert alert-<%= name == 'notice' ? 'primary' : 'danger' %> alert-dismissible fade show d-flex justify-content-between" role="alert">
+            <p><strong><%= msg %></strong></p>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+        <% end %>
       </div>
+      <!-- End Flash Messages Code -->
 
-      <div class="col-6 col-md-2 mb-3">
-        <h5>Section</h5>
-        <ul class="nav flex-column">
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li>
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li>
+      <% if @show_title %>
+        <div class="row">
+          <h1><%= content_for(:title) %></h1>
+        </div>
+      <% end %>
+
+      <%= yield %>
+    </main>
+
+    <div class="container mt-auto">
+          <div class="container mt-auto">
+      <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+        <div class="col-md-4 d-flex align-items-center">
+          <a href="<%= root_path %>" class="me-2 text-body-secondary text-decoration-none lh-1" aria-label="Final Project">
+            <i class="bi bi-bootstrap-fill fs-4"></i>
+          </a>
+          <span class="text-body-secondary">&copy; 2025 Final Project, Inc</span>
+        </div>
+
+        <ul class="nav col-md-4 justify-content-end list-unstyled d-flex mb-0">
+          <li class="ms-3"><a class="text-body-secondary" href="#" aria-label="Instagram"><i class="bi bi-instagram fs-4"></i></a></li>
+          <li class="ms-3"><a class="text-body-secondary" href="#" aria-label="Facebook"><i class="bi bi-facebook fs-4"></i></a></li>
         </ul>
-      </div>
+      </footer>
     </div>
-
-    <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
-      <p class="mb-0">&copy; 2025 Final Project, Inc. All rights reserved.</p>
-    </div>
-  </footer>
-</div>
-  </body>
 </html>
