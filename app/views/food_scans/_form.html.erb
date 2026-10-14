@@ -22,8 +22,8 @@
   </div>
 
   <div>
-    <%= form.label :food_item_id, style: "display: block" %>
-    <%= form.text_field :food_item_id %>
+    <%= form.label :food_item_id, "Food item", style: "display: block" %>
+    <%= form.collection_select :food_item_id, FoodItem.all, :id, :name, prompt: "Choose a food" %>
   </div>
 
   <div>

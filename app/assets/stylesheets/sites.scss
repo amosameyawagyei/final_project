@@ -1,4 +1,10 @@
 body {
-    min-height: 100vh;
-    padding-top: 60px; /* Adjust this value based on the height of your fixed navbar */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding-top: 60px; // only if your navbar is fixed-top
+}
+
+main {
+  flex: 1; // pushes the footer down on short pages
 }
