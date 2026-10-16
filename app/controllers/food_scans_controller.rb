@@ -1,10 +1,14 @@
 class FoodScansController < ApplicationController
   before_action :set_food_scan, only: %i[ show edit update destroy ]
 
-  # GET /food_scans or /food_scans.json
-  def index
-    @food_scans = FoodScan.all
-  end
+   # GET /food_scans or /food_scans.json
+   def index
+    if params[:q].present?
+      @food_scans = FoodScan.where("title LIKE ?", "%#{params[:q]}%")
+    else
+      @food_scans = FoodScan.all
+    end
+   end
 
   # GET /food_scans/1 or /food_scans/1.json
   def show

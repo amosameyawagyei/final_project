@@ -1,3 +1,11 @@
+<%= form_with url: food_scans_path, method: :get do |form| %>
+  <%= form.label :q, "Search by title" %>
+  <%= form.text_field :q, value: params[:q] %>
+  <%= form.submit "Search" %>
+  <%= link_to "Clear", food_scans_path %>
+<% end %>
+
+
 <p style="color: green"><%= notice %></p>
 
 <% content_for :title, "Food scans" %>
